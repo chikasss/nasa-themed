@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Link from "next/link";
 import "./globals.css";
+import { APODProvider } from './apod/APODContext';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+      <APODProvider>
         <div className="relative flex min-h-screen font-sans bg-landing-main bg-cover bg-center">
 
           {/* Left Sidebar Navigation */}
@@ -46,6 +48,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
+        </APODProvider>
       </body>
     </html>
   );
