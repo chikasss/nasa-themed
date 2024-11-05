@@ -43,7 +43,7 @@ export default function RootLayout({
               </nav>
 
               {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black opacity-40 z-10"></div>
+              {/* <div className="absolute inset-0 bg-black opacity-40 z-10"></div> */}
 
               {/* Main Content Area */}
               <main className="flex-1 ml-32 flex flex-col items-center justify-center p-4">
