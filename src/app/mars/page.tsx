@@ -88,7 +88,7 @@ export default function MarsPage() {
       </label>
 
       <button onClick={handleSearch}
-             className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+             className="px-4 py-2 bg-blue-500  rounded hover:bg-blue-600"
              >Search</button>
 
       {loading && <p className="text-center mt-5">Loading...</p>}
@@ -99,7 +99,7 @@ export default function MarsPage() {
       <div key={photo.id}
        className="relative overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
             <img src={photo.img_src} alt="Mars Rover" className="w-full h-auto" />
-            <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 text-center text-white p-3">
+            <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 text-center  p-3">
               <p className="text-lg font-semibold">{photo.rover.name}</p>
               <p className="text-sm">{photo.camera.full_name}</p>
               <p className="text-xs">{photo.earth_date}</p>
