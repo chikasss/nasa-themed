@@ -40,7 +40,7 @@ export default function RootLayout({
                   </div>
                 </nav>
                 <main className="flex-1 ml-32 flex flex-col items-center justify-center p-4">
-                <SearchBar />
+                {/* <SearchBar /> */}
                                {children}
                 </main>
               </div>
