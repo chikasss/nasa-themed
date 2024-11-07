@@ -12,7 +12,7 @@ This is Space-themed application which user can explore various NASA datasets th
 
 ## Set up
 
-make a repo 
+make a repo
 
 First, run the development server:
 
@@ -29,28 +29,28 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-## Key function 
+## Key function
 
 ### Homepage /
-On search function, user can search 
-- any keyword for APOD
-Result would appear if searched keyword exists in APOD title or description within 1 week prior today. 
-
-- Rover name { Curiosity, Opportunity, and Spirit } or date for Mars Rover Photos taken
-(actually should be camera type) 
-
-- date for Asteroid
-- Retrieve a list of Asteroids based on their closest approach date to Earth. 
+On search function, user can search
+- Keyword for APOD
+- Date for Mars Rover Photos taken
+- Date for Asteroid
 
 ### APOD (Astronomy Picture of the Day) /apod
 Astronomy Picture of the Day appear on this page.
 User can search previous picture picking the day on calendar.
 
 ### Mars Rover Photos /mars
-User can search by combination of rover name which are Curiosity, Opportunity, and Spirit, Camera Type and Earth date. 
+User can search by combination of rover name which are Curiosity, Opportunity, and Spirit, Camera Type and Earth date.
+
+e.g.
+Rover name: Curiosity
+Camera Type: Front Hazard Avoidance Camera
+Date: 2021-10-01
 
 ### Asteroids - NeoWs (Near Earth Object Web Service) /asteroids
-User can search near earth Asteroid information by inputting start date and end date.
-
+User can search near earth Asteroid information by selecting start date and end date.
+Date range should be one week.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

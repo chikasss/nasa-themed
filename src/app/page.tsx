@@ -4,6 +4,7 @@ import React from 'react';
 import { Space_Mono } from "next/font/google";
 import { useSearch } from './contexts/SearchContext';
 import SearchBar from './components/SearchBar';
+import GridCard from './components/GridCard';
 
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
@@ -22,7 +23,14 @@ export default function Home() {
   return (
     <div className="relative flex flex-1 flex-col items-center justify-center p-8 pb-20 gap-16 sm:p-20">
       <main className="z-20 flex flex-col gap-8 items-center text-white">
+
         <h1 className="text-4xl sm:text-5xl font-bold">Find Your Universe</h1>
+        <p>Search for...</p>
+          <ul>
+            <li>Any keyword for APOD</li>
+            <li>Date for Mars Rover Photos</li>
+            <li>Date for Asteroid NeoWs</li>
+          </ul>
         <SearchBar />
 
         {searchQuery && (
@@ -37,7 +45,7 @@ export default function Home() {
         {!loading && !error && (
           <div className="flex flex-col gap-8">
             <section>
-              <h2 className="text-2xl font-semibold">APOD Results</h2>
+              <h2 className="text-2xl font-semibold">APOD</h2>
               {results?.apodResults?.length > 0 ? (
                 results.apodResults.map((item, index) => (
                   <div key={index} className="flex flex-col items-center mb-4">
@@ -52,43 +60,44 @@ export default function Home() {
               )}
             </section>
 
+             {/* Mars Rover Photos Section */}
             <section>
-              <h2 className="text-2xl font-semibold">Mars Photos</h2>
+              <h2 className="text-2xl font-semibold">Mars Rover Photos</h2>
               {results?.marsPhotos?.length > 0 ? (
-                results.marsPhotos.map((photo, index) => (
-                  <div key={index}>
-                    <p>Rover: {photo.rover_name}</p>
-                    <p>Camera: {photo.camera_name}</p>
-                    <p>Earth Date: {photo.earth_date}</p>
-                    <img src={photo.img_src} alt={`Mars Rover Photo taken by ${photo.rover_name}`} />
-                  </div>
-                ))
+               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+               {results.marsPhotos.map((photo) => (
+                 <GridCard
+                   key={photo.img_src}
+                   type="mars"
+                   imgUrl={photo.img_src}
+                   roverName={photo.rover_name}
+                   cameraName={photo.camera_name}
+                   earthDate={photo.earth_date}
+                 />
+               ))}
+             </div>
               ) : (
                 <p>No results found for Mars photos.</p>
               )}
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold">Asteroids</h2>
+              <h2 className="text-2xl font-semibold">Asteroids NeoWs</h2>
               {asteroidDataForDate && asteroidDataForDate.length > 0 ? (
-                asteroidDataForDate.map((asteroid, index) => (
-                  <div key={index} className="mb-4">
-                    <h3 className="text-xl font-semibold">{asteroid.name}</h3>
-                    <p>Close Approach Data:</p>
-                    <ul className="list-disc pl-5">
-                      {asteroid.close_approach_data.map((approach, idx) => (
-                        <li key={idx}>
-                          <strong>Date:</strong> {approach.date}
-                          <br />
-                          <strong>Relative Velocity:</strong> {approach.relative_velocity.kilometers_per_hour} km/h
-                          <br />
-                          <strong>Miss Distance:</strong> {approach.miss_distance.kilometers} km
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))
-              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {asteroidDataForDate.map((asteroid) => (
+                    <GridCard
+                      key={asteroid.name}
+                      type="asteroid"
+                      name={asteroid.name}
+                      closeApproachDate={asteroid.close_approach_data[0]?.date}
+                      diameter={asteroid.estimated_diameter.meters.estimated_diameter_max}
+                      missDistance={asteroid.close_approach_data[0]?.miss_distance.kilometers}
+                      velocity={asteroid.close_approach_data[0]?.relative_velocity.kilometers_per_hour}
+                    />
+                  ))}
+                </div>
+                ) : (
                 <p>No asteroids found for the given date.</p>
               )}
             </section>

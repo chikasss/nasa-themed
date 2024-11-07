@@ -6,9 +6,9 @@ interface Asteroid {
   id: string;
   name: string;
   close_approach_date: string;
-  diameter: number; // store diameter in meters
-  miss_distance: number; // store miss distance in kilometers
-  velocity: number; // store velocity in kilometers per hour
+  diameter: number;
+  miss_distance: number;
+  velocity: number;
 }
 
 interface AsteroidsContextProps {

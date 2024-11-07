@@ -3,6 +3,7 @@
 import React from 'react';
 import { useAPOD } from './APODContext';
 import DatePicker from '../components/DatePicker';
+import Layout from '../components/Layout';
 
 const APODPage: React.FC = () => {
   const { apodData, loading, error, selectedDate, onDateChange } = useAPOD();
@@ -11,15 +12,17 @@ const APODPage: React.FC = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="apod-content text-white z-20 relative p-7">
-      <h1 className="text-4xl font-bold mb-3">Astronomy Picture of the Day</h1>
-      <p className='text-base mb-2'>Pick the day you want to see previous APOD</p>
-      <DatePicker selectedDate={selectedDate} onDateChange={onDateChange} />
+    <Layout>
+      <div className="apod-content text-white z-20 relative p-4 w-full max-w-6xl mx-auto">
+        <h1 className="text-4xl font-bold mb-3">Astronomy Picture of the Day</h1>
+        <p className='text-base mb-2'>Pick the day you want to see previous APOD</p>
+        <DatePicker selectedDate={selectedDate} onDateChange={onDateChange} />
 
-      <h2 className="text-2xl mt-4">{apodData?.title}</h2>
-      <img src={apodData?.url} alt={apodData?.title} className="mt-4 rounded" />
-      <p className="mt-5">{apodData?.explanation}</p>
-    </div>
+        <h2 className="text-2xl mt-4">{apodData?.title}</h2>
+        <img src={apodData?.url} alt={apodData?.title} className="mt-4 rounded" />
+        <p className="mt-5">{apodData?.explanation}</p>
+      </div>
+    </Layout>
   );
 };
 

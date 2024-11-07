@@ -9,8 +9,8 @@ const SearchBar = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSearchQuery(query); // Triggers the API call in SearchContext
-    setQuery(''); // Clear the input after submission
+    setSearchQuery(query);
+    setQuery('');
   };
 
   return (
