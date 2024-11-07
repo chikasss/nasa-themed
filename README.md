@@ -12,10 +12,24 @@ This is Space-themed application which user can explore various NASA datasets th
 
 ## Set up
 
-make a repo
+Clone the repo
+```bash
+git clone https://github.com/chikasss/nasa-themed.git
+```
 
-First, run the development server:
+Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
 
+Get Api key on Nasa API website and Set the key in your .env.local.file
+```bash
+NEXT_PUBLIC_NASA_API_KEY=your_actual_api_key
+```
+
+Run the development server
 ```bash
 npm run dev
 # or
@@ -34,8 +48,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Homepage /
 On search function, user can search
 - Keyword for APOD
-- Date for Mars Rover Photos taken
-- Date for Asteroid
+- Date, ~~Rover name and camera type~~ for Mars Rover Photos
+- ~~Date for Asteroid~~
 
 ### APOD (Astronomy Picture of the Day) /apod
 Astronomy Picture of the Day appear on this page.
