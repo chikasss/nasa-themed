@@ -1,9 +1,8 @@
 
-## Title
-Nasa-themed API - APOD (Astronomy Picture Of the Day), Mars Rover Photo, Asteroid
+# Space-themed Nasa APIs App
 
 ## Description
-Space-themed application using 3 Nasa Open APIs which are APOD (Astronomy Picture Of the Day), Mars Rover Photo and Asteroids - NeoWs
+This is Space-themed application which user can explore various NASA datasets through APIs which are APOD (Astronomy Picture Of the Day), Mars Rover Photo and Asteroid NeoWs.
 
 ## Built With
 
@@ -13,29 +12,7 @@ Space-themed application using 3 Nasa Open APIs which are APOD (Astronomy Pictur
 
 ## Set up
 
-## Key function 
-
-### Homepage
-User can search 
-- Keyword for APOD
-Result would appear if the keyword is in APOD title or description within 1 week prior today. 
-
-- Rover name or date for Mars Rover Photos
-(actually should be camera type) 
-
-- date for Asteroid
-
-### APOD (Astronomy Picture of the Day) page
-Astronomy Picture of the Day appear on this page.
-User can search previous picture picking the day on calendar.
-
-### Mars Rover Photos page
-User can search by combination of rover name which are Curiosity, Opportunity, and Spirit, Camera Type and Earth date 
-
-### Asteroids - NeoWs (Near Earth Object Web Service) page
-User can search near earth Asteroid information by inputting start date and end date.
-
-## Getting Started
+make a repo 
 
 First, run the development server:
 
@@ -50,5 +27,30 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+## Key function 
+
+### Homepage /
+On search function, user can search 
+- any keyword for APOD
+Result would appear if searched keyword exists in APOD title or description within 1 week prior today. 
+
+- Rover name { Curiosity, Opportunity, and Spirit } or date for Mars Rover Photos taken
+(actually should be camera type) 
+
+- date for Asteroid
+- Retrieve a list of Asteroids based on their closest approach date to Earth. 
+
+### APOD (Astronomy Picture of the Day) /apod
+Astronomy Picture of the Day appear on this page.
+User can search previous picture picking the day on calendar.
+
+### Mars Rover Photos /mars
+User can search by combination of rover name which are Curiosity, Opportunity, and Spirit, Camera Type and Earth date. 
+
+### Asteroids - NeoWs (Near Earth Object Web Service) /asteroids
+User can search near earth Asteroid information by inputting start date and end date.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
