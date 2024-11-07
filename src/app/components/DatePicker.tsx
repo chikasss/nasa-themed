@@ -15,7 +15,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
         type="date"
         value={selectedDate || ""}
         onChange={(e) => onDateChange(e.target.value)}
-        className="border p-2"
+        className="border p-2 rounded-md bg-white text-gray-800"
         placeholder="Select Date"
       />
     </div>

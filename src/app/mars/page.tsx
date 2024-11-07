@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { useMarsRover } from './MarsRoverContext';
+import DatePicker from '../components/DatePicker';
+
 
 export default function MarsPage() {
   const { photos, fetchPhotos, loading, error } = useMarsRover();
@@ -37,7 +39,7 @@ export default function MarsPage() {
 
   const handleRoverChange = (e) => {
     setSelectedRover(e.target.value);
-    setSelectedCamera(""); // Reset camera selection when rover changes
+    setSelectedCamera("");
   };
 
   const handleSearch = () => {
@@ -46,16 +48,15 @@ export default function MarsPage() {
 
   return (
     <div className="container mx-auto p-5">
-            <h1 className="text-2xl font-semibold mb-4">Mars Rover Photos</h1>
+      <h1 className="text-3xl font-semibold mb-4">Mars Rover Photos</h1>
+      <p>You can see photos taken by NASA’s Mars rovers.</p>
 
-      <label className="block mb-2">
+      <label className="block mb-2 mt-3">
         Select Rover:
         <select
           value={selectedRover}
           onChange={handleRoverChange}
-          className="mt-2 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
-
-        >
+          className="mt-2 block w-full p-2 border border-gray-300 rounded-md bg-white text-gray-600 focus:outline-none focus:ring focus:ring-blue-500">
           <option value="Curiosity">Curiosity</option>
           <option value="Opportunity">Opportunity</option>
           <option value="Spirit">Spirit</option>
@@ -67,7 +68,7 @@ export default function MarsPage() {
         <select
           value={selectedCamera}
           onChange={(e) => setSelectedCamera(e.target.value)}
-          className="mt-2 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500"
+          className="mt-2 block w-full p-2 border border-gray-300 rounded-md   bg-white text-gray-600 backdrop:focus:outline-none focus:ring focus:ring-blue-500"
         >
           <option value="">All</option>
           {cameraOptions[selectedRover]?.map((camera) => (
@@ -79,12 +80,8 @@ export default function MarsPage() {
       </label>
 
       <label className="block mb-4">
-        Select Date:
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
+      Select Date:
+        <DatePicker selectedDate={date} onDateChange={setDate} />
       </label>
 
       <button onClick={handleSearch}

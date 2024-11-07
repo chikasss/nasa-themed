@@ -17,20 +17,28 @@ const AsteroidsPage: React.FC = () => {
 
   return (
     <div className="container mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Near-Earth Objects</h1>
+      <h1 className="text-3xl font-bold mb-4">Near-Earth Objects</h1>
+      <p>You can see near-Earth objects based on close approach date.</p>
 
+      {/* Date picker for start date */}
+      <div className="mt-3">
+      <label className="mb-1 block">Select start date:</label>
       <DatePicker
         selectedDate={selectedStartDate}
         onDateChange={setSelectedStartDate}
         singleDate
       />
+      </div>
 
       {/* Date picker for end date */}
+      <div className="mt-3">
+      <label className="mb-1 block">Select end date:</label>
       <DatePicker
         selectedDate={selectedEndDate}
         onDateChange={setSelectedEndDate}
         singleDate
       />
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
         {asteroids.map((asteroid) => (
